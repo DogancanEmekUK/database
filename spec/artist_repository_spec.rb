@@ -18,10 +18,10 @@ RSpec.describe ArtistRepository do
         expect(artists.length).to eq 4
     end
 
-    it "returns artists by the given genre" do
+    it "returns artists by the given id" do
         repo = ArtistRepository.new
         artists = repo.all
-        expect(repo.find(4)).to eq artists[3]
+        expect(repo.find(1)).to eq ['Metallica']
     end
 
 end

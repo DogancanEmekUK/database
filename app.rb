@@ -4,10 +4,18 @@ require_relative 'lib/database_connection'
 DatabaseConnection.connect('music_library_test')
 
 # Perform a SQL query on the database and get the result set.
-sql = 'SELECT id, name, genre FROM artists;'
-result = DatabaseConnection.exec_params(sql, [])
+sql_artist = 'SELECT id, name, genre FROM artists;'
+result_artist = DatabaseConnection.exec_params(sql_artist, [])
 
 # Print out each record from the result set .
-result.each do |record|
+result_artist.each do |record|
   p record
 end
+
+sql_album = 'SELECT id, title, release_year, artist_id FROM albums;'
+result_album = DatabaseConnection.exec_params(sql_album, [])
+
+result_album.each do |record|
+  p record
+end
+
