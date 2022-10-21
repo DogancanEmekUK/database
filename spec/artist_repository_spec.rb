@@ -21,7 +21,7 @@ RSpec.describe ArtistRepository do
     it "returns artists by the given id" do
         repo = ArtistRepository.new
         artists = repo.all
-        expect(repo.find(1)).to eq ['Metallica']
+        expect(repo.find(1)).to eq ['Pixies']
     end
 
 end

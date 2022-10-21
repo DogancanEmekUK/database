@@ -60,13 +60,13 @@ class AlbumRepository
 
     end
 
-    def find(title)
+    def find(id)
 
         albums = []
 
-        sql = 'SELECT id, title, release_year, artist_id FROM albums WHERE title = $1;'
+        sql = 'SELECT id, title, release_year, artist_id FROM albums WHERE id = $1;'
 
-        params = [title]
+        params = [id]
 
         result_set = DatabaseConnection.exec_params(sql, params)
 
