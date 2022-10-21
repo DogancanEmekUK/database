@@ -19,3 +19,10 @@ result_album.each do |record|
   p record
 end
 
+sql_album = 'SELECT id, title, release_year, artist_id FROM albums WHERE id = 3;'
+result_album = DatabaseConnection.exec_params(sql_album, [])
+
+result_album.each do |record|
+  p record
+end
+

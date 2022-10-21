@@ -14,14 +14,32 @@ RSpec.describe AlbumRepository do
 
     it "returns all albums" do
         repo = AlbumRepository.new
-        p albums = repo.all
+        albums = repo.all
         expect(albums.length).to eq 4
     end
 
-    it "returns albums by the given id" do
+    it "adds an album to the table" do
+        repo = AlbumRepository.new
+
+        album = Album.new
+        album.title = 'Death Magnetic'
+        album.release_year = '2008'
+        album.artist_id = 1
+
+        repo.create(album)
+        expect(repo.all.length).to eq 5
+    end
+
+    it "deletes an album by the given name" do
+        repo = AlbumRepository.new
+        repo.delete(3)
+        expect(repo.all.length).to eq 3
+    end
+
+    it "returns albums by the given title" do
         repo = AlbumRepository.new
         albums = repo.all
-        expect(repo.find(1)).to eq ['Enter Sandman']
+        expect(repo.find('Enter Sandman')).to eq ["Enter Sandman - 1991 - 1"]
     end
 
 end
